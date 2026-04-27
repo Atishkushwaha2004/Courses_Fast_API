@@ -4,7 +4,7 @@
         "title": "Python for Beginners",
         "instructor": "Aanya Sharma",
         "category": "programming",
-        "price": 499.0,
+        "price": 599.0,
         "duration_hours": 12,
         "is_published": true,
         "discount_percent": 10.0
@@ -198,14 +198,5 @@
         "duration_hours": 14,
         "is_published": true,
         "discount_percent": null
-    },
-    {
-        "id": 21,
-        "title": "Mobile Communication",
-        "instructor": "string",
-        "price": 0.0,
-        "duration_hours": 0,
-        "is_published": true,
-        "discount_percent": 0.0
     }
 ]

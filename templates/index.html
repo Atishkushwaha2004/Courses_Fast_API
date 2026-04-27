@@ -1,0 +1,125 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<header class="topbar">
+  <div>
+    <h1>🎓 Course Dashboard</h1>
+    <p>Manage your FastAPI Courses Professionally</p>
+  </div>
+</header>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="stat-card">
+    <h3 id="totalCourses">0</h3>
+    <p>Total Courses</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 id="publishedCourses">0</h3>
+    <p>Published</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 id="draftCourses">0</h3>
+    <p>Draft</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 id="avgPrice">₹0</h3>
+    <p>Average Price</p>
+  </div>
+</section>
+
+<!-- Form + Search -->
+<section class="grid">
+
+<div class="card">
+<h2>Add / Update Course</h2>
+
+<form id="courseForm">
+
+<input type="hidden" id="courseId">
+
+<input type="text" id="title" placeholder="Course Title" required>
+<input type="text" id="instructor" placeholder="Instructor Name" required>
+<input type="text" id="category" placeholder="Category" required>
+
+<div class="row">
+<input type="number" id="price" placeholder="Price" required>
+<input type="number" id="duration_hours" placeholder="Duration">
+</div>
+
+<div class="row">
+<input type="number" id="discount_percent" placeholder="Discount %" value="0">
+<select id="is_published">
+<option value="true">Published</option>
+<option value="false">Draft</option>
+</select>
+</div>
+
+<div class="actions">
+<button type="submit" class="btn primary">Save Course</button>
+<button type="button" onclick="resetForm()" class="btn success">Clear</button>
+</div>
+
+</form>
+</div>
+
+<div class="card">
+<h2>Search / Filter</h2>
+
+<input type="text" id="searchText" placeholder="Search by Title..." onkeyup="searchCourses()">
+
+<div class="row mt">
+<input type="number" id="maxPrice" placeholder="Max Price">
+<button onclick="filterCourses()" class="btn primary">Filter</button>
+<button onclick="loadCourses()" class="btn success">Reset</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- Table -->
+<section class="card table-card">
+<h2>All Courses</h2>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Instructor</th>
+<th>Price</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="courseTable"></tbody>
+</table>
+
+<div class="pagination">
+<button onclick="prevPage()" class="btn">Prev</button>
+<span id="pageInfo">Page 1</span>
+<button onclick="nextPage()" class="btn">Next</button>
+</div>
+
+</section>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
